@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbr.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rradules <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/31 20:27:35 by rradules          #+#    #+#             */
-/*   Updated: 2023/08/09 20:35:33 by rradules         ###   ########.fr       */
+/*   Created: 2023/07/31 20:01:36 by rradules          #+#    #+#             */
+/*   Updated: 2023/08/09 20:35:31 by rradules         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_nbr(long int n)
+int	ft_putnbr(unsigned long int n)
 {
-	const char	*base;
-	int			nbr_len;
+	int		nbr_len;
+	char	*base;
 
 	base = "0123456789";
 	nbr_len = 0;
-	if (n == LONG_MIN)
+	if (n >= 10)
 	{
-		write(1, "-9223372036854775808", 20);
-		return (20);
-	}
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		nbr_len = nbr_len + ft_nbr(-n);
-	}
-	else if (n >= 10)
-	{
-		ft_nbr(n / 10);
-		ft_nbr(n % 10);
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
 	}
 	else
 		write(1, &base[n], 1);

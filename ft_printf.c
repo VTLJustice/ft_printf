@@ -6,7 +6,7 @@
 /*   By: rradules <rradules@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 18:42:13 by rradules          #+#    #+#             */
-/*   Updated: 2023/08/09 18:38:29 by rradules         ###   ########.fr       */
+/*   Updated: 2023/08/09 20:13:41 by rradules         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	check_format(va_list args, const char format)
 	else if (format == 'd' || format == 'i')
 		return (ft_nbr(va_arg(args, int)));
 	else if (format == 'u')
-		return (ft_putunbr_base(va_arg(args, unsigned int), "0123456789"));
+		return (ft_putnbr(va_arg(args, unsigned int)));
 	else if (format == 'x' || format == 'X')
 		return (ft_hex(va_arg(args, unsigned long int), format));
 	else if (format == '%')
