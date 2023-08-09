@@ -6,7 +6,7 @@
 /*   By: rradules <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:11:04 by rradules          #+#    #+#             */
-/*   Updated: 2023/08/09 18:37:50 by rradules         ###   ########.fr       */
+/*   Updated: 2023/08/09 18:55:44 by rradules         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,14 @@ int	ft_hex(unsigned long int n, char format)
 	char				*base;
 	unsigned int		nbr_len;
 
+	base = "0123456789abcdef";
 	nbr_len = 0;
 	if (format == 'p')
 	{
-		base = "0123456789abcdef";
 		write(1, "0x", 2);
 		nbr_len += 2;
 	}
-	else if (format == 'x')
-		base = "0123456789abcdef";
-	else
+	else if (format == 'X')
 		base = "0123456789ABCDEF";
 	if (n < 16)
 		ft_writenum(n, nbr_len, base);
